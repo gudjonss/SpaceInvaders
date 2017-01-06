@@ -111,6 +111,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
     collision = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
     if collision:
+        ai_settings.explosion.play()
         for aliens in collision.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
@@ -132,6 +133,8 @@ def fire_bullet(ai_settings, screen, ship, bullets):
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
+        ai_settings.player_shot.play()
+
 
 def get_number_aliens_x(ai_settings, alien_width):
     """ Determine the number of aliens that fit in a row."""

@@ -1,4 +1,4 @@
-
+import pygame
 
 
 class Settings():
@@ -27,6 +27,10 @@ class Settings():
         self.speedup_scale = 1.1
         # How quickly the alien point values increase_speed
         self.score_scale = 1.5
+
+        # Assign sounds to variables
+        self.player_shot = pygame.mixer.Sound('./audio/laser.wav')
+        self.explosion = pygame.mixer.Sound('./audio/explosion.wav')
 
         self.initalize_dynamic_settings()
 
